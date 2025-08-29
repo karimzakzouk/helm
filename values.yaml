@@ -1,9 +1,9 @@
-replicaCount: 2
+replicaCount: 1
 
 image:
   repository: docker.io/karimzakzouk/graduation-project-devops
   pullPolicy: IfNotPresent
-  tag: 83849bd04868cccd57a5a4c85af60fd9995a99c7
+  tag: ac454c2c2925812bf44ea55e4aafdbb343d770bb
 
 service:
   type: LoadBalancer
@@ -34,3 +34,15 @@ autoscaling:
   maxReplicas: 10
   targetCPUUtilizationPercentage: 80
   targetMemoryUtilizationPercentage: 80
+
+karpenter:
+  nodepool:
+    name: solar-nodepool
+    capacityTypes: ["spot", "on-demand"]
+    architecture: ["amd64"]
+  nodeclass:
+    name: solar-nodeclass
+    role: "KarpenterNodeRole-solar-system-app-cluster"
+    amiFamily: AmazonLinux2023
+    clusterName: "solar-system-app-cluster"
+    instanceProfile: KarpenterNodeInstanceProfile
