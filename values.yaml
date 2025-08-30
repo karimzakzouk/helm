@@ -3,7 +3,7 @@ replicaCount: 1
 image:
   repository: docker.io/karimzakzouk/graduation-project-devops
   pullPolicy: IfNotPresent
-  tag: b9bcb98f2c5f5efac1101efffdfd30c500c82d10
+  tag: e9e2027facb352fa0cd0f6617ddd6d630ff96fa8
 
 service:
   type: LoadBalancer
